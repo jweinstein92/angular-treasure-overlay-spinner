@@ -3,10 +3,9 @@
 
   /** TEMPLATE /template/treasure-overlay-spinner/treasure-overlay-spinner.html
    *  <div class="treasure-overlay-spinner-content">
-   *    <div class="treasure-overlay-spinner-container">
-   *      <div class="treasure-overlay-spinner"></div>
+   *    <div class="treasure-overlay-spinner-container" ng-transclude="spinnerContent">
+   *      <div class="treasure-overlay-spinner" ng-transclude="spinnerText"></div>
    *    </div>
-   *    <ng-transclude></ng-transclude>
    *  </div>
    */
 
@@ -14,10 +13,9 @@
   var TEMPLATE_PATH = '/template/treasure-overlay-spinner/treasure-overlay-spinner.html';
   var TEMPLATE = '';
   TEMPLATE += '<div class="treasure-overlay-spinner-content">';
-  TEMPLATE +=   '<div class="treasure-overlay-spinner-container">';
-  TEMPLATE +=     '<div class="treasure-overlay-spinner"></div>';
+  TEMPLATE +=   '<div class="treasure-overlay-spinner-container" ng-transclude="spinnerContent">';
+  TEMPLATE +=     '<div class="treasure-overlay-spinner" ng-transclude="spinnerText"></div>';
   TEMPLATE +=   '</div>';
-  TEMPLATE +=   '<ng-transclude></ng-transclude>';
   TEMPLATE += '</div>';
 
   // module
@@ -30,7 +28,7 @@
     return {
       templateUrl: TEMPLATE_PATH,
       scope: {active: '='},
-      transclude: true,
+      transclude: {spinnerText: '?spinnerText', spinnerContent: 'spinnerContent'},
       restrict: 'E',
       link: link
     };
