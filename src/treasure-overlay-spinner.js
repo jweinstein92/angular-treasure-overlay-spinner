@@ -13,11 +13,11 @@
   // constants
   var TEMPLATE_PATH = '/template/treasure-overlay-spinner/treasure-overlay-spinner.html';
   var TEMPLATE = '';
-  TEMPLATE += '<div class="treasure-overlay-spinner-content">';
+  TEMPLATE += '<div class="treasure-overlay-spinner-content layout-column flex">';
   TEMPLATE +=   '<div class="treasure-overlay-spinner-container">';
   TEMPLATE +=     '<div class="treasure-overlay-spinner"></div>';
   TEMPLATE +=   '</div>';
-  TEMPLATE +=   '<ng-transclude></ng-transclude>';
+  TEMPLATE +=   '<ng-transclude layout-column flex></ng-transclude>';
   TEMPLATE += '</div>';
 
   // module
