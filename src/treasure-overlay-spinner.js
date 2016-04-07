@@ -17,7 +17,7 @@
   TEMPLATE +=   '<div class="treasure-overlay-spinner-container">';
   TEMPLATE +=     '<div class="treasure-overlay-spinner"></div>';
   TEMPLATE +=   '</div>';
-  TEMPLATE +=   '<ng-transclude layout-column flex></ng-transclude>';
+  TEMPLATE +=   '<ng-transclude></ng-transclude>';
   TEMPLATE += '</div>';
 
   // module
@@ -36,6 +36,7 @@
     };
 
     function link (scope, iElement) {
+      angular.element('.treasure-overlay-spinner-content ng-transclude').addClass('layout-column flex');
       scope.$watch('active', statusWatcher);
       function statusWatcher (active) {
         $animate[active ? 'addClass' : 'removeClass'](iElement, 'treasure-overlay-spinner-active');
